@@ -1,0 +1,37 @@
+1.Linux 下安装  apt-get install cmake
+
+   查看安装是否成功  cmake --version  打印出版本信息即可
+   
+   注意：Inconsistency detected by ld.so: dl-version.c: 224: _dl_check_map_versions: 出现此问题
+   
+   需要执行  $ locate ld.so   然后删除   sudo rm /etc/ld.so.cache  即可
+   
+   
+2 简单测试
+   1） 写一个简单的c程序
+    #include <stdio.h>
+    #include <stdlib.h>
+   
+    int main(){
+      printf("cmake test\n");
+        
+       return 0; 
+    }  
+    
+    2）创建  vim CmakeLists.txt文件
+       #Make 最低版本号要求
+       cmake_minimum_required (VERSION 2.8)
+       # 项目信息
+       project (Demo1)
+       # 指定生成目标
+      add_executable(Demo molloc.c)
+      
+      
+    3）执行 cmake CmakeLists.txt 生成 MakeFile 文件
+    
+    4）执行 make  生成 Demo 文件
+    5）./Demo  执行得到结果
+
+       
+
+    
